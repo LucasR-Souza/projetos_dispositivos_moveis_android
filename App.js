@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Button } from 'react-native'; 
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const contador = () =>{
+	const [contar, SetIncrementar] = useState(0);
+
+	const incrementar = () => SetIncrementar(contar + 1);
+	
+		return (
+			<View style={styles.base}>
+       	 		<Text style={[styles.base, styles.numero]}>
+       	     		{contar}
+        		</Text>
+				<Button title='Me aperte!!!' onPress={incrementar}/>
+    		</View>
+	)
+
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	
+	base: {
+		paddingTop: 100,
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginBottom: 10
+	},
+	numero: {
+		fontSize: 20
+	}
+})
+export default contador;
